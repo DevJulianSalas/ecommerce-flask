@@ -1,0 +1,43 @@
+
+
+version: '2'
+services:
+  db_master:
+    env_file: .env
+    restart: always
+    build: ./mongo
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    tty: true
+    volumes:
+      - /var/log/mongodb/
+      - /data/db
+      - /home/kalismash/Docker/mongo_django/mongo/desarrollo:/home/developt
+
+    networks:
+      app_net:
+        ipv4_address: '$MONGO_IP'
+
+    web_flask:
+      env_file: .env
+      restart: always
+      build: ./flask/apps:/
+      ports:
+        -"9000:9000"
+      expose:
+        - "9000"
+      tty: true
+      volumes:
+        - ./flask:/home/
+      args:
+        - FLASK_ENV=dev
+
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.24.0.0/24

@@ -1,0 +1,32 @@
+#Commangs useful
+
+  1) How run .js file to mongodb insert opertaions db.
+
+  mongodb -
+
+
+# Configurate mongo with authentication
+
+  mongod --port 27017
+
+
+#roles to give user database
+
+  read and readWrite
+
+
+#roles to give user database administration
+
+  dbAdmin : administration db
+  dbOwner : all grant readWrite, dbadmin, userAdmin
+  userAdmin
+
+
+# Login to mongo with password and port
+
+
+
+
+#path of log files mongodb
+
+  /var/log/mongodb/
