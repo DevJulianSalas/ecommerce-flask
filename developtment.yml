@@ -14,7 +14,7 @@ services:
     volumes:
       - /var/log/mongodb/
       - /data/db
-      - /home/kalismash/Docker/mongo_django/mongo/desarrollo:/home/developt
+      - ./mongo/desarrollo:/home/developt
     networks:
       app_net:
         ipv4_address: '$MONGO_IP'
