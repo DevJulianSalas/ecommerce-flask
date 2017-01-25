@@ -2,7 +2,7 @@ from alpine:latest
 MAINTAINER juliansalas080@gmail.com
 
 #Arguments to docker build
-
+ARG FLASK_ENV
 
 
 #Environment variables
@@ -26,8 +26,8 @@ RUN pip install --upgrade pip
 
 RUN mkdir /tmp/requirements
 COPY requirements/base.txt /tmp/requirements/
-COPY requirements/$DJANGO_ENV.txt /tmp/requirements/
-RUN pip install -r /tmp/requirements/$DJANGO_ENV.txt
+COPY requirements/$FLASK_ENV.txt /tmp/requirements/
+RUN pip install -r /tmp/requirements/$FLASK_ENV.txt
 
 
 

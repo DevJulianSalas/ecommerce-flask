@@ -30,3 +30,9 @@
 #path of log files mongodb
 
   /var/log/mongodb/
+
+
+
+
+
+# Proyectos
