@@ -1,5 +1,4 @@
 machine:
-
   pre:
     # actualiza docker para que docker-compose funcione correctamente
     - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
@@ -27,4 +26,5 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker pushito
       - docker push devjulian/ecommerce-flask
