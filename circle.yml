@@ -6,6 +6,8 @@ machine:
 
 dependencies:
   override:
+    - docker info
+    - docker version
     - pip install --upgrade docker-compose
 
 
