@@ -1,19 +1,15 @@
-
-
 version: '2'
 services:
-  db_master:
-    env_file: .env
-    restart: always
-    build: ./mongo
+  db_mongo:
+    extends:
+      file: base.yml
+      service: mongo
+    container_name: db_mongo
     ports:
       - "27017:27017"
     expose:
       - "27017"
-    tty: true
     volumes:
-      - /var/log/mongodb/
-      - /data/db
       - ./mongo/desarrollo:/home/developt
     networks:
       app_net:
@@ -22,17 +18,17 @@ services:
 
 
   web_flask:
+    extends:
+      file: base.yml
+      service: flask
+    container_name: web_flask
     build:
-      context: ./flask
       args:
-        - FLASK_ENV=dev
-    env_file: .env
-    restart: always
+        - Flask_ENV=dev
     ports:
       - "9000:9000"
     expose:
       - "9000"
-    tty: true
     volumes:
       - ./flask/projects:/home/desarrollo
     networks:

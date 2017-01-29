@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  mongo:
+    build:
+      context: ./mongo
+    env_file: .env
+    restart: always
+    tty: true
+    container_name: db-mongo
+    volumes:
+      - /var/log/mongodb/
+      - /data/db
+
+  # microservice-django:
+  #   build:
+  #     context: ./webapp-django
+  #   env_file: .env
+  #   tty: true
+
+
+  flask:
+    build:
+      context: ./flask
+    env_file: .env
+    tty: true
+    container_name: flask-app

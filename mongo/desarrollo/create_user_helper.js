@@ -1,5 +1,1 @@
-//create user to mongodb
-
-// create user
-
-// use 
+// Script to create user with specific roles
