@@ -24,7 +24,7 @@ services:
     container_name: web_flask
     build:
       args:
-        - Flask_ENV=dev
+        - FLASK_ENV=dev
     ports:
       - "9000:9000"
     expose:
