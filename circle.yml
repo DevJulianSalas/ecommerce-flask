@@ -21,12 +21,12 @@ test:
     - docker-compose -f dev.yml run web_flask python apps/test_flask.py
 
 
-# deployment:
-#   hub:
-#     branch: master
-#     commands:
-#       - curl -H "Content-Type: application/json" --data '{"build": true}' -X POST $TRIGGER_URL
-#
+deployment:
+  hub:
+    branch: master
+    commands:
+      - $TIGGER_URL
+
       # - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       # - docker pushito
       # - docker push devjulian/ecommerce-flask
