@@ -3,14 +3,8 @@ machine:
   timezone: America/Bogota
   services:
     - docker
-  python:
-    version: $VERSION_PYTHON
 
-dependences:
-  pre:
-    - pip install -f requirements.txt
-
-
+dependencies:
   override:
     - sudo pip install --upgrade docker-compose==1.3.3
 
