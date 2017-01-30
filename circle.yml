@@ -24,4 +24,4 @@ deployment:
   hub:
     branch: develop
     commands:
-      - ${DEPLOY}
+      - bash -c "$DEPLOY_STG"
