@@ -24,4 +24,6 @@ deployment:
   hub:
     branch: develop
     commands:
-      - bash -c "$DEPLOY"
+      - $DEPLOY_STG
+
+#"curl -H \"Content-Type: application/json\" --data '{\"build\": \"true\"}' -X POST https://registry.hub.docker.com/u/devjulian/ecommerce-flask/trigger/e675ff17-2b32-4d39-b3a3-d4d43f0dc619/"
