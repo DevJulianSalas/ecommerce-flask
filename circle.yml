@@ -24,6 +24,7 @@ deployment:
   hub:
     branch: develop
     commands:
+      # deploy
       - bash -c "$DEPLOY"
       # - curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST http://example.com
 
