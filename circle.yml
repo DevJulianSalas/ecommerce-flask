@@ -16,16 +16,17 @@ dependencies:
 
 test:
   override:
-    - docker-compose -f dev.yml build
     - docker-compose -f dev.yml run web_flask python apps/test_flask.py
+
 
 
 deployment:
   hub:
     branch: develop
     commands:
-      # deploy
-      - bash -c "$DEPLOY"
+      - docker-compose -f dev.yml build
+      - docker-compose push -f dev.yml
+      # - bash -c "$DEPLOY"
       # - curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST http://example.com
 
 #"curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST https://registry.hub.docker.com/u/devjulian/ecommerce-flask/trigger/e675ff17-2b32-4d39-b3a3-d4d43f0dc619/"

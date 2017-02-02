@@ -20,8 +20,8 @@ services:
 
 
   flask:
-    build:
-      context: ./flask
+    build: ./flask
+    image: devjulian/ecommerce-flask:1
     env_file: .env
     tty: true
     container_name: flask-app
