@@ -25,6 +25,7 @@ deployment:
     branch: develop
     commands:
       - docker-compose -f dev.yml build
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker-compose  -f dev.yml push
       # - bash -c "$DEPLOY"
       # - curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST http://example.com
