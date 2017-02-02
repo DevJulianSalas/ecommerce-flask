@@ -24,12 +24,24 @@ deployment:
   hub:
     branch: develop
     commands:
-      - docker-compose -f dev.yml build
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker-compose  -f dev.yml push
-      # - bash -c "$DEPLOY"
-      # - curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST http://example.com
+      - git pull origin develop
+      - docker-compose -f dev.yml up -d --build
+
+
+
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - bash -c "$DEPLOY"
+
 
 #"curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST https://registry.hub.docker.com/u/devjulian/ecommerce-flask/trigger/e675ff17-2b32-4d39-b3a3-d4d43f0dc619/"
-
 #"curl -H \"Content-Type:application/json\" --data '{\"build\": \"true\"}' -X POST https://registry.hub.docker.com/u/devjulian/ecommerce-flask/trigger/e675ff17-2b32-4d39-b3a3-d4d43f0dc619/"
+
+# - curl -H \"Content-Type: application/json\" --data '{\"source_type\": \"Branch\", \"source_name\": \"dev\"}' -X POST http://example.com
+# - docker-compose -f dev.yml build
+# - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+# - docker-compose  -f dev.yml push
+# - bash -c "$DEPLOY"
